@@ -57,5 +57,13 @@ describe('Cinema', function () {
     const actual = cinema.totalRunningTimeOfAllFilms()
     assert.strictEqual(actual, 622)
   });
+  it('should be able to return films filtered by any property', function() {
+    const actual = cinema.filterByProperty('genre', 'drama')
+    assert.deepStrictEqual(actual, [moonlight, trainspotting])
+  });
+  it('should be able to return films filtered by any property', function() {
+    const actual = cinema.filterByProperty('year', 2017)
+    assert.deepStrictEqual(actual, [bladeRunner, dunkirk, trainspotting])
+  });
 
 });
