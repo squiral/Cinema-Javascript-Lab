@@ -24,4 +24,34 @@ Cinema.prototype.filterByGenre = function(genre) {
   return result
 }
 
+Cinema.prototype.filterByYear = function(year) {
+  const result = this.films.filter((film) => {
+    return film.year === year
+  })
+  return result
+}
+
+Cinema.prototype.areThereFilmsFromYear = function(year) {
+  const result = this.films.some((film) => {
+    return film.year === year
+  })
+  return result
+}
+Cinema.prototype.allFilmsOverLength = function(length) {
+  const result = this.films.every((film) => {
+    return film.length > length
+  })
+  return result
+}
+
+Cinema.prototype.totalRunningTimeOfAllFilms = function() {
+  const filmLengths = this.films.map((film) => {
+    return film.length
+  })
+  const result = filmLengths.reduce((runningTotal, initialValue) => {
+    return runningTotal + initialValue
+  })
+  return result
+}
+
 module.exports = Cinema;
